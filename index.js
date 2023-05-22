@@ -10,7 +10,7 @@ import ProductRouter from "./routes/product.route.js";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT ||6000;
+const PORT = process.env.PORT || 6000;
 
 // const MONGO_URL = "mongodb://127.0.0.1";s
 // const MONGO_URL = process.env.MONGO_URL;
@@ -34,6 +34,4 @@ app.get("/", function (request, response) {
   response.send("🙋‍♂️, 🌏 🎊✨🤩 <h1>Welcome to MERN App<h1>");
 });
 
-app.listen(PORT, () =>
-  console.log(`Server Running on port ${PORT}`)
-);
+app.listen(PORT, () => console.log(`Server Running on port ${PORT}`));
