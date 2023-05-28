@@ -20,8 +20,10 @@ export const requireSignIn = async (req, res, next) => {
 // adminMiddleware.js
 
 export const isAdmin = async (req, res, next) => {
+  const { email } = req.body;
   try {
-    const user = await userModel.findById(req.user.id);
+    const user = await userModel.findOne({ email: email });
+    console.log(user);
     if (!user) {
       return res.status(401).json({
         success: true,
@@ -29,7 +31,7 @@ export const isAdmin = async (req, res, next) => {
       });
     }
 
-    if (user.role !== 1) {
+    if (user.role !== "1") {
       return res.status(401).json({
         success: false,
         message: "Unauthorized Access",
